@@ -3,12 +3,11 @@ sudo: required
 services:
   - docker
 
-#before_install:
-#  - docker build -t dea/docker-react -f Dockerfile.dev .
+before_install:
+  - docker build -t dea/docker-react -f Dockerfile.dev .
 
 script:
-  - docker build -t dea/docker-react -f Dockerfile.dev .
-  #- docker run -e CI=true dea/docker-react npm run test
+  - echo 'running script'
 
 before_deploy: "echo 'Deploying.'"
 deploy:
