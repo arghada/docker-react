@@ -7,4 +7,18 @@ before_install:
   - docker build -t dea/docker-react -f Dockerfile.dev .
 
 script:
+  - echo 'running script'
   - docker run -e CI=true dea/docker-react npm run test
+
+before_deploy: "echo 'Deploying.'"
+deploy:
+  provider: elasticbeanstalk
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key: $AWS_SECRET_KEY
+  region: "us-east-2"
+  app: "docker-react"
+  env: "DockerReact-env"
+  bucket_name: "elasticbeanstalk-us-east-2-262585274270"
+  bucket_path: "docker-react"
+after_deploy:
+  - echo 'Deployment finished.'
