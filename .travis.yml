@@ -16,9 +16,9 @@ deploy:
   access_key_id: $AWS_ACCESS_KEY
   secret_access_key: $AWS_SECRET_KEY
   region: "us-east-2"
-  app: "docker-react"
-  env: "DockerReact-env"
+  app: "docker"
+  env: "Docker-env"
   bucket_name: "elasticbeanstalk-us-east-2-262585274270"
-  bucket_path: "docker-react"
+  bucket_path: "docker"
 after_deploy:
   - echo 'Deployment finished.'
